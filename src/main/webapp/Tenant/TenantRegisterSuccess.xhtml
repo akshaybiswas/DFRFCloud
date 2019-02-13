@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/signin.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="tenantid" value="#{tenantAdd.tenantId}"></f:viewParam>
+            <f:viewAction action="#{tenantAdd.fillTenantValues()}"/>
+        </f:metadata>
+        <p:panel header="Registered Succesfully !">
+            <h:panelGrid columns="2" columnClasses="label, value">
+                <h:outputText value="Id:" />
+                <h:outputText value="#{tenantAdd.tenant.id}" />
+                <h:outputText value="Name:" />
+                <h:outputText value="#{tenantAdd.tenant.name}" />
+                <h:outputText value="Email:" />
+                <h:outputText value="#{tenantAdd.tenant.email}" />
+                <h:outputText value="Phone Number:" />
+                <h:outputText value="#{tenantAdd.tenant.phone}" />
+            </h:panelGrid>
+            <br />
+            <p:button styleClass="purple-button" value="Click to Login" outcome = "/TenantLogin"  />
+        </p:panel>
+
+    </ui:define>
+
+</ui:composition>
